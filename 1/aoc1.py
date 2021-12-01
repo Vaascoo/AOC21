@@ -1,4 +1,4 @@
-raw = list(int(el.strip()) for el in open("input.ttxt").readlines())
+raw = list(int(el.strip()) for el in open("input.txt").readlines())
 
 count1, count2 = 0, 0
 for i in range(1, len(raw) - 2):
