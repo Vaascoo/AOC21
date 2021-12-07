@@ -1,4 +1,4 @@
-raw = list(int(el) for el in open("/home/vaascoo/Documents/Programming/rust/AOC21/7/input.txt").readline().split(','))
+raw = list(int(el) for el in open("input.txt").readline().split(','))
 
 a = []
 for n in range(max(raw)): #posicao
