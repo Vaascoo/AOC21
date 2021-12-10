@@ -74,36 +74,17 @@ for line in raw:
             stack.append(char)
         elif char in closings:
             if char == ')':
-                if len(stack) == 0:
-                    score *= 5
-                    score += get_score('(')
-                while len(stack) and (c := stack.pop(-1)) != '(':
-                    score *= 5
-                    score += get_score(c)
-                
+                if stack[-1] == '(':
+                    stack.pop(-1)
             elif char == ']':
-                if len(stack) == 0:
-                    score *= 5
-                    score += get_score('[')
-                while len(stack) and (c := stack.pop(-1)) != '[':
-                    score *= 5
-                    score += get_score(c)
-                
+                if stack[-1] == '[':
+                    stack.pop(-1)
             elif char == '}':
-                if len(stack) == 0:
-                    score *= 5
-                    score += get_score('{')
-                while len(stack) and (c := stack.pop(-1)) != '{':
-                    score *= 5
-                    score += get_score(c)
-                
+                if stack[-1] == '{':
+                    stack.pop(-1)
             elif char == '>':
-                if len(stack) == 0:
-                    score *= 5
-                    score += get_score('<')
-                while len(stack) and (c := stack.pop(-1)) != '<':
-                    score *= 5
-                    score += get_score(c)
+                if stack[-1] == '<':
+                    stack.pop(-1)
     
     while len(stack) and (char := stack.pop(-1)):
         score *= 5
