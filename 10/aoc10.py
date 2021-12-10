@@ -12,11 +12,11 @@ for line in raw:
         else:
             if char == correspondence.get(stack[-1]):
                 stack.pop(-1)
-            else:
+            else: #part1
                 score1 += points.get(char)
                 corrupt = True
                 break
-
+    #part2
     while not corrupt and len(stack) and (char := stack.pop(-1)):
         score2 *= 5
         score2 += points2.get(char)
