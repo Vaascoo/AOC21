@@ -4,11 +4,9 @@ flash_counter, to_flash, flashed, STEPS = 0, None, None, 10000
 
 def get_adj(i, j):
     global raw
-    r = []
     for ii, jj in ((i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1), (i - 1, j - 1), (i - 1, j + 1), (i + 1, j + 1), (i + 1, j - 1)):
         if ii >= 0 and jj >= 0 and ii < len(raw) and jj < len(raw[0]):
-            r.append((ii, jj))
-    return r
+            yield (ii, jj)
 
 def flash(i, j):
     global raw, to_flash, flash_counter, flashed
