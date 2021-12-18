@@ -101,22 +101,6 @@ class Node:
         self._head = head
         self._sub = None
 
-    def count(self):
-        b = 1
-        if self._sub is None:
-            return b
-        for el in self._sub:
-            b += el.count()
-        return b
-
-    def length(self):
-        b = self._head._len
-        if self._sub is None:
-            return b
-        for el in self._sub:
-            b += el.length()
-        return b
-
     def eval(self):
         l = []
         if self._sub is None:
@@ -177,10 +161,8 @@ def parse_operator(index):
 
 
 def auto_parse(index):
-    if read_type(index) == 4:
-        return parse_literal(index)
-    else:
-        return parse_operator(index)
+    return parse_literal(index) if read_type(index) == 4\
+        else parse_operator(index)
 
 
 def parse(index):
