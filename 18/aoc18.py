@@ -129,7 +129,6 @@ for i in range(1, len(raw)):
     reduce(new)
     acumulated = new
 
-# print(acumulated)
 
 list_magnitude(acumulated)
 
